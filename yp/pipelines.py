@@ -6,7 +6,7 @@
 # See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
 from openpyxl import Workbook
-
+from yp.settings import EXCEL_PATH
 
 class YpPipeline(object):
     def process_item(self, item, spider):
@@ -22,5 +22,5 @@ class TradePipeline(object):
     def process_item(self, item, spider):
         line = [item['name'], item['tel']]
         self.ws.append(line)
-        self.wb.save('d:/trade.xlsx')
+        self.wb.save(EXCEL_PATH)
         return item
