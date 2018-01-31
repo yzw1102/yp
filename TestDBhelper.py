@@ -30,7 +30,7 @@ class TestDBhelper(object):
 
     if __name__ == "__main__":
         print("begin : ------------------")
-        from yp.TestDBhelper import TestDBhelper
+        from TestDBhelper import TestDBhelper
         t = TestDBhelper()
         t.test_query()
         print("end : ------------------")
