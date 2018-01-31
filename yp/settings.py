@@ -134,7 +134,8 @@ IPPOOL=[
 ]
 
 ITEM_PIPELINES = {
-    'yp.pipelines.TradePipeline': 500
+    # 'yp.pipelines.TradePipeline': 500,
+    'yp.pipelines.TradeMysqlPipeline':600
 }
 
 DOWNLOADER_MIDDLEWARES = {
@@ -146,5 +147,12 @@ DOWNLOADER_MIDDLEWARES = {
 COOKIES_ENABLED = False
 DOWNLOAD_DELAY = 3
 EXCEL_PATH = 'd:/trade.xlsx'
+
+#Mysql数据库配置信息
+MYSQL_HOST = '127.0.0.1'
+MYSQL_DBNAME = 'yp'
+MYSQL_USER = 'root'
+MYSQL_PASSWD = 'root'
+MYSQL_PORT = 3306
 
 

@@ -7,6 +7,7 @@
 
 from openpyxl import Workbook
 from yp.settings import EXCEL_PATH
+from yp.dbhelper import DBhelper
 
 class YpPipeline(object):
     def process_item(self, item, spider):
@@ -24,3 +25,12 @@ class TradePipeline(object):
         self.ws.append(line)
         self.wb.save(EXCEL_PATH)
         return item
+
+
+class TradeMysqlPipeline(object):
+    def __init__(self):
+        self.dbhelper = DBhelper()
+        pass
+    def process_item(self, item, spider):
+        sql = "insert into trade (name,tel) VALUE (%s,%s)"
+        self.dbhelper.insert(sql,item['name'],item['tel'])
